@@ -52,8 +52,6 @@ Ops = conf.registerPlugin('Ops')
 conf.registerChannelValue(Ops, 'opslist',
     registry.SpaceSeparatedListOfStrings('', """Contains the list of ops in the
                                                 current channel"""))
-conf.registerChannelValue(Ops, 'message',
-    registry.String('', """Message to ping ops with"""))
 
 # This is where your configuration variables (if any) should go.  For example:
 # conf.registerGlobalValue(Ops, 'someConfigVariableName',
