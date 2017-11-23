@@ -36,14 +36,14 @@ import supybot.ircutils as ircutils
 import supybot.callbacks as callbacks
 try:
     from supybot.i18n import PluginInternationalization
-    _ = PluginInternationalization('Ops')
+    _ = PluginInternationalization('OpsPing')
 except ImportError:
     # Placeholder that allows to run the plugin on a bot
     # without the i18n module
     _ = lambda x: x
 
 
-class Ops(plugins.ChannelIdDatabasePlugin):
+class OpsPing(plugins.ChannelIdDatabasePlugin):
     """Plugin for ops pinging message per channel"""
 
     def ops(self, irc, msg, args):
@@ -66,7 +66,7 @@ class Ops(plugins.ChannelIdDatabasePlugin):
     ops = wrap(ops)
 
 
-Class = Ops
+Class = OpsPing
 
 
 # vim:set shiftwidth=4 softtabstop=4 expandtab textwidth=79:

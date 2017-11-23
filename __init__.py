@@ -29,7 +29,7 @@
 ###
 
 """
-Ops: Plugin for ops pinging message per channel
+OpsPing: Plugin for ops pinging message per channel
 """
 
 import supybot

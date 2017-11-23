@@ -31,8 +31,8 @@
 from supybot.test import *
 
 
-class OpsTestCase(PluginTestCase):
-    plugins = ('Ops',)
+class OpsPingTestCase(PluginTestCase):
+    plugins = ('OpsPing',)
 
 
 # vim:set shiftwidth=4 tabstop=4 expandtab textwidth=79:

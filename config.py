@@ -32,7 +32,7 @@ import supybot.conf as conf
 import supybot.registry as registry
 try:
     from supybot.i18n import PluginInternationalization
-    _ = PluginInternationalization('Ops')
+    _ = PluginInternationalization('OpsPing')
 except:
     # Placeholder that allows to run the plugin on a bot
     # without the i18n module
@@ -45,16 +45,16 @@ def configure(advanced):
     # user or not.  You should effect your configuration by manipulating the
     # registry as appropriate.
     from supybot.questions import expect, anything, something, yn
-    conf.registerPlugin('Ops', True)
+    conf.registerPlugin('OpsPing', True)
 
 
-Ops = conf.registerPlugin('Ops')
-conf.registerChannelValue(Ops, 'opslist',
+OpsPing = conf.registerPlugin('OpsPing')
+conf.registerChannelValue(OpsPing, 'opslist',
     registry.SpaceSeparatedListOfStrings('', """Contains the list of ops in the
                                                 current channel"""))
 
 # This is where your configuration variables (if any) should go.  For example:
-# conf.registerGlobalValue(Ops, 'someConfigVariableName',
+# conf.registerGlobalValue(OpsPing, 'someConfigVariableName',
 #     registry.Boolean(False, _("""Help for someConfigVariableName.""")))
 
 
