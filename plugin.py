@@ -13,7 +13,7 @@ except ImportError:
     _ = lambda x: x
 
 
-class OpsPing(plugins.ChannelIdDatabasePlugin):
+class OpsPing(callbacks.Plugin):
     """Plugin for ops pinging message per channel"""
 
     def ops(self, irc, msg, args):
@@ -27,16 +27,7 @@ class OpsPing(plugins.ChannelIdDatabasePlugin):
             irc.error('no list of ops to ping configured for this channel.')
             return
 
-        message = self.db.random(channel)
-        if message:
-            context = {
-                'channel': channel,
-                'nick': msg.nick,
-            }
-            message = message.text.format(**context)
-            message = '{} - {}'.format(opslist, message)
-        else:
-            message = opslist
+        message = ', '.join(opslist)
         irc.reply(message, prefixNick=False)
     ops = wrap(ops)
 
