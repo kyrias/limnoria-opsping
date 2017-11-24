@@ -29,7 +29,12 @@ class OpsPing(plugins.ChannelIdDatabasePlugin):
 
         message = self.db.random(channel)
         if message:
-            message = '{} - {}'.format(opslist, message.text)
+            context = {
+                'channel', channel,
+                'nick': msg.nick,
+            }
+            message = message.text.format(**context)
+            message = '{} - {}'.format(opslist, message)
         else:
             message = opslist
         irc.reply(message, prefixNick=False)
