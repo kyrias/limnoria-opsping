@@ -17,9 +17,9 @@ class OpsPing(callbacks.Plugin):
     """Plugin for ops pinging message per channel"""
 
     def ops(self, irc, msg, args, text):
-        """takes a string to ping ops with
+        """<message>
 
-        Pings all ops in the current channel.
+        Pings ops for the current channel with an optional message.
         """
         channel = msg.args[0]
         opslist = self.registryValue('opslist', channel)
