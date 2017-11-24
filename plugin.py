@@ -30,7 +30,7 @@ class OpsPing(plugins.ChannelIdDatabasePlugin):
         message = self.db.random(channel)
         if message:
             context = {
-                'channel', channel,
+                'channel': channel,
                 'nick': msg.nick,
             }
             message = message.text.format(**context)
