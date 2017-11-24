@@ -16,20 +16,22 @@ except ImportError:
 class OpsPing(callbacks.Plugin):
     """Plugin for ops pinging message per channel"""
 
-    def ops(self, irc, msg, args):
-        """takes no arguments
+    def ops(self, irc, msg, args, text):
+        """takes a string to ping ops with
+
         Pings all ops in the current channel.
         """
         channel = msg.args[0]
         opslist = self.registryValue('opslist', channel)
-        opslist = ', '.join(opslist)
         if not opslist:
             irc.error('no list of ops to ping configured for this channel.')
             return
 
         message = ', '.join(opslist)
+        if text:
+            message = '{} - {}'.format(message, text)
         irc.reply(message, prefixNick=False)
-    ops = wrap(ops)
+    ops = wrap(ops, [optional('text')])
 
 
 Class = OpsPing
